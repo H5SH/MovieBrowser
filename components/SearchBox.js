@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Button, TextInput } from 'react-native';
+import { StyleSheet, View, Button, TextInput, ImageBackground } from 'react-native';
 import React from 'react';
 import {  } from 'react-native';
 
-
+const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
 
 export default class SearchBox extends React.Component {
   state = {
@@ -27,22 +27,22 @@ export default class SearchBox extends React.Component {
 
 render(){
   return (
-    <View style={styles.container}>
+    <View style={styles.container}> 
       <TextInput 
       value={this.state.search} 
       style={styles.input}
       onChangeText={this.handlesearch}/>
-      <Button title='search' onPress={()=>this.props.onSearch(this.state.search)} style={styles.searchbutton} disabled={!this.validateform()}/>
+      <Button title='search' onPress={()=>this.props.onSearch(this.state.search)} disabled={!this.validateform()}/>
       <StatusBar style="auto" />
     </View>
+   
   );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    flex:1,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -53,6 +53,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
+    backgroundColor: 'white',
   },
+  image: {
+    flex: 1,
+    height: 500,
+    width: 400,
+    resizeMode: 'cover'
+  }
 
 });
